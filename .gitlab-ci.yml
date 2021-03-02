@@ -18,7 +18,7 @@ build:
 
 firefox:
   stage: build
-  script: apt install firefox-esr
+  script: apt install firefox
 
 geckodriver:
   stage: build
