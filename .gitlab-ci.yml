@@ -1,4 +1,4 @@
-image: gradle:alpine
+image: gradle:jre11
 
 variables:
   GRADLE_OPTS: "-Dorg.gradle.daemon=false"
@@ -18,13 +18,13 @@ build:
 
 firefox:
   stage: build
-  script: sudo apk add firefox-esr
+  script: apk add firefox-esr
 
 geckodriver:
   stage: build
   script:
   - wget https://github.com/mozilla/geckodriver/releases/download/v0.29.0/geckodriver-v0.29.0-linux64.tar.gz
-  - sudo tar -zxf geckodriver-v0.29.0-linux64.tar.gz -C /usr/bin
+  - tar -zxf geckodriver-v0.29.0-linux64.tar.gz -C /usr/bin
   - geckodriver --version
 
 cucumber:
