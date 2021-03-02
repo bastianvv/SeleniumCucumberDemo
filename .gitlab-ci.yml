@@ -25,7 +25,8 @@ cucumber:
   - apt update
   - apt install firefox -y
   - firefox --version
-  - gradle cucumber --debug
+  - gradle cucumber
   artifacts:
+    when: always
     paths:
       - build/cucumber-report/
