@@ -21,6 +21,7 @@ firefox:
   script:
   - apt update
   - apt install firefox -y
+  - whereis firefox
 
 geckodriver:
   stage: build
@@ -31,7 +32,9 @@ geckodriver:
 
 cucumber:
   stage: test
-  script: gradle cucumber --debug
+  script:
+  - whereis firefox
+  - gradle cucumber --debug
   artifacts:
     paths:
       - build/cucumber-report/
