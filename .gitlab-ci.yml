@@ -18,13 +18,13 @@ build:
 
 firefox:
   stage: build
-  script: apk add firefox-esr
+  script: sudo apk add firefox-esr
 
 geckodriver:
   stage: build
   script:
   - wget https://github.com/mozilla/geckodriver/releases/download/v0.29.0/geckodriver-v0.29.0-linux64.tar.gz
-  - tar -zxf geckodriver-v0.29.0-linux64.tar.gz -C /usr/bin
+  - sudo tar -zxf geckodriver-v0.29.0-linux64.tar.gz -C /usr/bin
   - geckodriver --version
 
 cucumber:
