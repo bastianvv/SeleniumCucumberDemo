@@ -27,7 +27,7 @@ test:
       - .gradle
 
 cucumber:
-  stage: cucumber
+  stage: test
   script: gradle cucumber
   artifacts:
     paths:
