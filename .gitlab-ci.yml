@@ -31,7 +31,7 @@ geckodriver:
 
 cucumber:
   stage: test
-  script: gradle cucumber
+  script: gradle cucumber --debug
   artifacts:
     paths:
       - build/cucumber-report/
