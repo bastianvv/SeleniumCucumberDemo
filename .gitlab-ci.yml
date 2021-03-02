@@ -16,24 +16,15 @@ build:
       - build
       - .gradle
 
-firefox:
-  stage: build
-  script:
-  - apt update
-  - apt install firefox -y
-  - whereis firefox
-
-geckodriver:
-  stage: build
+cucumber:
+  stage: test
   script:
   - wget https://github.com/mozilla/geckodriver/releases/download/v0.29.0/geckodriver-v0.29.0-linux64.tar.gz
   - tar -zxf geckodriver-v0.29.0-linux64.tar.gz -C /usr/bin
   - geckodriver --version
-
-cucumber:
-  stage: test
-  script:
-  - whereis firefox
+  - apt update
+  - apt install firefox -y
+  - firefox --version
   - gradle cucumber --debug
   artifacts:
     paths:
