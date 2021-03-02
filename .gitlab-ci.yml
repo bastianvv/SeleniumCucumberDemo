@@ -20,7 +20,7 @@ firefox:
   stage: build
   script:
   - apt update
-  - apt install firefox
+  - apt install firefox -y
 
 geckodriver:
   stage: build
