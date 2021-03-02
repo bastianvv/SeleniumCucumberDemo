@@ -21,7 +21,7 @@ sonarqube {
     properties {
         property "sonar.projectKey", "bastianvv_seleniumcucumberdemo"
         property "sonar.organization", "bastianvv"
-        property "sonar.sources", "**/test/java/**"
+        property "sonar.sources", "src/test/java"
     }
 }
 
