@@ -9,6 +9,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import org.hamcrest.core.StringContains;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import pages.ResultsPage;
 import pages.StartPage;
 
@@ -25,7 +26,9 @@ public class SearchDuckDuckGo {
     @Before
     public void setup() {
         System.setProperty("webdriver.gecko.driver", driverPath);
-        driver = new FirefoxDriver();
+        FirefoxOptions options = new FirefoxOptions();
+        options.setHeadless(true);
+        driver = new FirefoxDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
