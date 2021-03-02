@@ -1,0 +1,59 @@
+plugins {
+    id 'java'
+    id "org.sonarqube" version "3.1.1"
+
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "bastianvv_seleniumcucumberdemo"
+        property "sonar.organization", "bastianvv"
+    }
+}
+
+task cucumber() {
+    dependsOn assemble, testClasses
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--plugin', 'pretty',
+                    '--plugin', 'json:build/cucumber-report/cucumber.json',
+                    '--plugin', 'html:build/cucumber-report/cucumber.html',
+                    '--plugin', 'junit:build/cucumber-report/cucumber.xml',
+                    '--glue', 'stepDef', 'src/test/resources/features']
+        }
+    }
+}
+
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    //testCompile group: 'junit', name: 'junit', version: '4.12'
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-java
+    compile group: 'io.cucumber', name: 'cucumber-java', version: '6.9.1'
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
+    testCompile group: 'io.cucumber', name: 'cucumber-junit', version: '6.9.1'
+    // https://mvnrepository.com/artifact/org.hamcrest/hamcrest
+    testCompile group: 'org.hamcrest', name: 'hamcrest', version: '2.2'
+}
+
+test {
+    useJUnitPlatform()
+}

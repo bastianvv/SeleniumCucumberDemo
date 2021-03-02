@@ -1,0 +1,96 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-03-02T02:52:23.377Z",
+        "before": [
+          {
+            "result": {
+              "duration": 4209052000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "stepDef.SearchDuckDuckGo.setup()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Common search",
+        "description": "",
+        "id": "search-with-duckduckgo;common-search",
+        "after": [
+          {
+            "result": {
+              "duration": 544805000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "stepDef.SearchDuckDuckGo.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2754360000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I go to DuckDuckGo start page",
+            "match": {
+              "location": "stepDef.SearchDuckDuckGo.iGoToDuckDuckGoStartPage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 13804631000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I search for something",
+            "match": {
+              "location": "stepDef.SearchDuckDuckGo.iSearchForSomething()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 13837000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "DuckDuckGo shows the results first page",
+            "match": {
+              "location": "stepDef.SearchDuckDuckGo.duckDuckGoShowsTheResultsFirstPage()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@search"
+          }
+        ]
+      }
+    ],
+    "name": "Search with DuckDuckGo",
+    "description": "  Different types of search with DuckDuckGo",
+    "id": "search-with-duckduckgo",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/searchduckduckgo.feature",
+    "tags": [
+      {
+        "name": "@search",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  }
+]
