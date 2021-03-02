@@ -51,7 +51,7 @@ public class SearchDuckDuckGo {
     @Then("DuckDuckGo shows the results first page")
     public void duckDuckGoShowsTheResultsFirstPage() {
         String url = driver.getCurrentUrl();
-        assertThat(url, StringContains.containsString("Selenium+automation"));
+        assertThat(url, StringContains.containsString("Selenium+automated"));
     }
 
 }
