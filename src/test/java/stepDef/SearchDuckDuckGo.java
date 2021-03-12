@@ -7,9 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import org.hamcrest.Matchers;
 import org.hamcrest.core.StringContains;
-import org.hamcrest.CoreMatchers;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
