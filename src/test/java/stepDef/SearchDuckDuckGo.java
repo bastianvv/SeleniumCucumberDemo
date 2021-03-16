@@ -8,12 +8,14 @@ import io.cucumber.java.en.When;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.hamcrest.core.StringContains;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.StartPage;
+import pages.ResultsPage;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,6 +25,7 @@ public class SearchDuckDuckGo {
     WebDriver driver;
     WebDriverWait wait;
     StartPage startPageDdg;
+    ResultsPage resultsPageddg;
 
     @Before
     public void setup() {
@@ -63,7 +66,9 @@ public class SearchDuckDuckGo {
     @Then("DuckDuckGo shows the results first page")
     public void duckDuckGoShowsTheResultsFirstPage() {
         String url = driver.getCurrentUrl();
+        resultsPageddg = new ResultsPage(driver);
         assertThat(url, StringContains.containsString("Selenium+automation"));
+        Assert.assertTrue(resultsPageddg.checkResults("Selenium"));
     }
 
     @Then("DuckDuckGo redirects to the main page")
